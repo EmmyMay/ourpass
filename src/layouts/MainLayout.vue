@@ -2,12 +2,12 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar class="bg-white q-py-lg">
-        <q-btn class="bg-primary" flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
+        <q-btn class="text-primary lt-lg" flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
         <q-toolbar-title class="text-primary"> Paypay </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
+    <q-drawer class="lt-lg" v-model="leftDrawerOpen">
       <q-list>
         <q-item-label class="text-primary" header> Paypay </q-item-label>
         <q-separator />
