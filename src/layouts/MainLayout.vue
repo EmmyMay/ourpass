@@ -1,24 +1,20 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar class="bg-secondary">
-        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+    <q-header>
+      <q-toolbar class="bg-white q-py-lg q-py-md-none row-md justify-md-start">
+        <q-btn class="text-primary lt-md" flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
+        <q-toolbar-title class="logo text-primary col max-custom-fit"> Paypay </q-toolbar-title>
+        <div class="flex sth">
+          <NavLink class=" gt-sm" v-for="(link, i) in NavLinks" :key="i" v-bind="link" />
+        </div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
+    <q-drawer class="lt-md" v-model="leftDrawerOpen">
       <q-list>
-        <q-item-label header>
-          Menu
-        </q-item-label>
-
-
+        <q-item-label class="text-primary" header> Paypay </q-item-label>
+        <q-separator />
+        <NavLink v-for="(link, i) in NavLinks" :key="i" v-bind="link" />
       </q-list>
     </q-drawer>
 
@@ -30,14 +26,14 @@
 
 <script>
 import { defineComponent, ref } from 'vue'
+import NavLink from 'src/components/NavLink.vue'
 
 
 const linksList = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    title: 'Dashboard',
+    icon: 'dashboard',
+    path: '/',
   },
   {
     title: 'Invoices',
@@ -45,50 +41,49 @@ const linksList = [
     path: '/invoices',
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    title: 'Wallet',
+    icon: 'wallet',
+    path: '/wallet',
   },
   {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
+    title: 'Activity',
+    icon: 'bar_chart',
+    path: '/activity',
   },
   {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
+    title: 'Help',
+    icon: 'phone',
+    path: '/help',
   },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
+
 ]
 
 export default defineComponent({
   name: 'MainLayout',
+  components: {
+    NavLink,
+  },
 
   setup() {
     const leftDrawerOpen = ref(false)
 
     return {
-      essentialLinks: linksList,
+      NavLinks: linksList,
       leftDrawerOpen,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value
-      }
+      },
     }
-  }
+  },
 })
 </script>
+
+<style scoped>
+@media (min-width: 1024px) {}
+
+
+
+.sth {
+  margin: 0 auto;
+}
+</style>

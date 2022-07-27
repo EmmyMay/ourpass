@@ -17,7 +17,6 @@ module.exports = {
   // Rules order is important, please avoid shuffling them
   extends: [
     'plugin:vue/vue3-essential', // Priority A: Essential (Error Prevention)
-    'prettier',
   ],
 
   plugins: [
