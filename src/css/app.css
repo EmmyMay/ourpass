@@ -1,1 +1,10 @@
 /* app global css */
+@font-face {
+  font-family: Poppins;
+  src: url(./fonts//poppins-v20-latin-regular.woff2),
+    url(./fonts//poppins-v20-latin-regular.woff), local(Roboto);
+}
+
+body {
+  font-family: Poppins;
+}
