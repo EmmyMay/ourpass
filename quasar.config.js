@@ -32,6 +32,10 @@ module.exports = configure(function (/* ctx */) {
     boot: [
 
       'axios',
+      {
+        server: false,
+        path: 'color'
+      }
     ],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css

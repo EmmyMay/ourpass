@@ -8,3 +8,7 @@
 body {
   font-family: Poppins;
 }
+
+.text-common {
+  color: #b0b4b8 !important;
+}
