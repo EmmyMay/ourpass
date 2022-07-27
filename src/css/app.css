@@ -13,17 +13,6 @@ body {
 .text-common {
   color: #b0b4b8 !important;
 }
-/* exact-active styling is global because its css class is also global and the navbar is global too */
-@media (max-width: 599px) {
-  .q-router-link--exact-active {
-    border-right: #343084 solid 3px;
-  }
-}
-@media (min-width: 1024px) {
-  .q-router-link--exact-active {
-    border-bottom: #343084 solid 3px;
-  }
-}
 
 /* TODO: Revise class names adn remove important */
 .custom-fit {
