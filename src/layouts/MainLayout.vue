@@ -1,13 +1,16 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar class="bg-white q-py-lg">
-        <q-btn class="text-primary lt-lg" flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
-        <q-toolbar-title class="text-primary"> Paypay </q-toolbar-title>
+    <q-header>
+      <q-toolbar class="bg-white q-py-lg q-py-md-none row-md justify-md-start">
+        <q-btn class="text-primary lt-md" flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
+        <q-toolbar-title class="logo text-primary col max-custom-fit"> Paypay </q-toolbar-title>
+        <div class="flex sth">
+          <NavLink class=" gt-sm" v-for="(link, i) in NavLinks" :key="i" v-bind="link" />
+        </div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer class="lt-lg" v-model="leftDrawerOpen">
+    <q-drawer class="lt-md" v-model="leftDrawerOpen">
       <q-list>
         <q-item-label class="text-primary" header> Paypay </q-item-label>
         <q-separator />
@@ -74,3 +77,13 @@ export default defineComponent({
   },
 })
 </script>
+
+<style scoped>
+@media (min-width: 1024px) {}
+
+
+
+.sth {
+  margin: 0 auto;
+}
+</style>

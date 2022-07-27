@@ -1,8 +1,8 @@
 <template>
   <!-- Wrapper classes makes it easier to debug elements in devtools -->
   <div class="Navlink">
-    <q-item clickable :to="path" exact>
-      <q-item-section class="text-common" v-if="icon" avatar>
+    <q-item class="item q-py-md-lg  custom-fit" clickable :to="path" exact>
+      <q-item-section class="text-common q-px-none" v-if="icon" avatar>
         <q-icon :name="icon" />
       </q-item-section>
 
@@ -37,5 +37,12 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.q-item__section--avatar {
+  min-width: 2.5rem;
+}
+
+.item {
+  margin-right: 3rem;
+}
 </style>
