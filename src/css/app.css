@@ -9,7 +9,10 @@ body {
   font-family: Poppins;
   background-color: #fafafa;
 }
-
+/* resetting address styling */
+address {
+  font-style: normal;
+}
 .text-common {
   color: #b0b4b8 !important;
 }
