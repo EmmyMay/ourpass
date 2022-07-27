@@ -1,37 +1,17 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar class="bg-secondary">
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+      <q-toolbar class="bg-white q-py-lg">
+        <q-btn class="bg-primary" flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
+        <q-toolbar-title class="text-primary"> Paypay </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label
-          header
-        >
-          Menu
-        </q-item-label>
-
-
+        <q-item-label class="text-primary" header> Paypay </q-item-label>
+        <q-separator />
+        <NavLink v-for="(link, i) in NavLinks" :key="i" v-bind="link" />
       </q-list>
     </q-drawer>
 
@@ -43,66 +23,54 @@
 
 <script>
 import { defineComponent, ref } from 'vue'
+import NavLink from 'src/components/NavLink.vue'
 
 
 const linksList = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    title: 'Dashboard',
+    icon: 'dashboard',
+    path: '/',
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+    title: 'Invoices',
+    icon: 'receipt',
+    path: '/invoice',
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    title: 'Wallet',
+    icon: 'wallet',
+    path: '/wallet',
   },
   {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
+    title: 'Activity',
+    icon: 'bar_chart',
+    path: '/activity',
   },
   {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
+    title: 'Help',
+    icon: 'phone',
+    path: '/help',
   },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
+
 ]
 
 export default defineComponent({
   name: 'MainLayout',
+  components: {
+    NavLink,
+  },
 
-  setup () {
+  setup() {
     const leftDrawerOpen = ref(false)
 
     return {
-      essentialLinks: linksList,
+      NavLinks: linksList,
       leftDrawerOpen,
-      toggleLeftDrawer () {
+      toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value
-      }
+      },
     }
-  }
+  },
 })
 </script>

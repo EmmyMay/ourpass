@@ -12,3 +12,6 @@ body {
 .text-common {
   color: #b0b4b8 !important;
 }
+.q-router-link--exact-active {
+  border-right: #343084 solid 3px;
+}
