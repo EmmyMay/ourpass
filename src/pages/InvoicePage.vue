@@ -1,9 +1,24 @@
 <template>
-  <q-page-container class="Invoice column items-center q-pl-md-xl">
-    <q-page>
+  <q-page-container class="Invoice column items-center items-lg-start q-pl-md-xl ">
+    <q-page class=" q-pa-lg">
       <InvoiceBreadcrumb></InvoiceBreadcrumb>
-      <section class="bg-white rounded-borders">
-
+      <section class=" row column items-center bg-white q-py-lg q-px-sm q-mt-sm rounded-borders">
+        <div class="company_info row justify-between">
+          <div class=" row">
+            <q-icon style="color:#397cf9;" size="3rem" name="water_drop"></q-icon>
+            <div>
+              <h5 class="q-pa-none q-ma-none">Dipa Inhouse</h5>
+              <address>
+                <a class="text-common text-subtitle2" href="mailto:hello@dipainhouse.com">hello@dipainhouse.com</a>
+              </address>
+            </div>
+          </div>
+          <address class="text-common text-subtitle1 text-weight-medium">
+            Ijen Boulevard Street 101 <br>
+            Malang City, 65115 <br>
+            East Java, Indonesia
+          </address>
+        </div>
       </section>
     </q-page>
   </q-page-container>
@@ -18,4 +33,29 @@ export default {
 </script>
 
 <style scoped>
+address a {
+  text-decoration: none;
+}
+
+@media (max-width: 1023px) {
+  .q-page {
+    min-width: 100%;
+    border: solid red 3px;
+  }
+
+  .custom-fit {
+    border: solid red 2px;
+  }
+
+  .company_info {
+    min-width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .q-page {
+    min-width: 98%;
+    border: solid red 3px;
+  }
+}
 </style>

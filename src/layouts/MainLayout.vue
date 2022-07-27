@@ -79,7 +79,17 @@ export default defineComponent({
 </script>
 
 <style scoped>
-@media (min-width: 1024px) {}
+@media (min-width: 1024px) {
+  .q-toolbar {
+    padding-left: 2rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .q-toolbar {
+    padding-left: .5rem;
+  }
+}
 
 
 
