@@ -1,8 +1,8 @@
 <template>
-  <q-page-container class="Invoice column items-center items-lg-start q-pl-md-xl ">
+  <q-page-container class="Invoice column items-center  q-pl-md-xl ">
     <q-page class=" q-pa-lg">
       <InvoiceBreadcrumb></InvoiceBreadcrumb>
-      <section class=" row column items-center bg-white q-py-lg q-px-sm q-mt-sm rounded-borders">
+      <section class=" row column items-center bg-white q-py-lg q-px-sm q-mt-sm rounded">
         <div class="company_info row justify-between">
           <div class=" row">
             <q-icon style="color:#397cf9;" size="3rem" name="water_drop"></q-icon>
@@ -19,6 +19,7 @@
             East Java, Indonesia
           </address>
         </div>
+        <InvoiceCard class="q-mt-lg"></InvoiceCard>
       </section>
     </q-page>
   </q-page-container>
@@ -26,9 +27,10 @@
 
 <script>
 import InvoiceBreadcrumb from "../components/InvoiceBreadcrumb.vue";
+import InvoiceCard from "src/components/InvoiceCard.vue";
 
 export default {
-  components: { InvoiceBreadcrumb }
+  components: { InvoiceBreadcrumb, InvoiceCard }
 }
 </script>
 
@@ -40,12 +42,8 @@ address a {
 @media (max-width: 1023px) {
   .q-page {
     min-width: 100%;
-    border: solid red 3px;
   }
 
-  .custom-fit {
-    border: solid red 2px;
-  }
 
   .company_info {
     min-width: 100%;
@@ -54,8 +52,7 @@ address a {
 
 @media (min-width: 1024px) {
   .q-page {
-    min-width: 98%;
-    border: solid red 3px;
+    min-width: 70%;
   }
 }
 </style>
