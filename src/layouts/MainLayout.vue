@@ -38,7 +38,7 @@ const linksList = [
   {
     title: 'Invoices',
     icon: 'receipt',
-    path: '/invoice',
+    path: '/invoices',
   },
   {
     title: 'Wallet',
