@@ -1,49 +1,55 @@
 <template>
 
-  <q-table flat class="q-mt-lg" :rows="rowData" :hidePagination="true" :columns="cols" row-key="name">
-    <template #header-cell="props">
-      <q-th class="text-common text-subtitle2" :props="props">
-        {{ props.col.label }}
-      </q-th>
-    </template>
-    <template #body-cell-itemName="props">
-      <q-td :props="props">
-        <q-input dense v-model="rowData[props.rowIndex].itemName" label="Description" rounded>
-        </q-input>
-      </q-td>
-    </template>
-    <template #body-cell-hours="props">
-      <q-td :props="props">
-        <q-input type="number" @change="updateTableTotal(props.rowIndex)" dense v-model="rowData[props.rowIndex].hours"
-          :label="props.col.label" rounded></q-input>
-      </q-td>
-    </template>
-    <template #body-cell-ratePerHr="props">
-      <q-td :props="props">
-        <q-input type="number" @change="updateTableTotal(props.rowIndex)" v-model="rowData[props.rowIndex].ratePerHr"
-          prefix="$" dense :label="props.col.label" rounded>
-        </q-input>
-      </q-td>
-    </template>
-    <template #body-cell-tax="props">
-      <q-td :props="props">
-        <q-input type="number" v-model="rowData[props.rowIndex].tax" prefix="$" dense :label="props.col.label" rounded>
-        </q-input>
-      </q-td>
-    </template>
-    <template #body-cell-lineTotal="props">
-      <q-td :props="props">
-        <q-input type="number" v-model="rowData[props.rowIndex].lineTotal" prefix="$" dense :label="props.col.label"
-          rounded>
-        </q-input>
-      </q-td>
-    </template>
-    <template #body-cell-action="props">
-      <q-td v-if="rowData[props.rowIndex].action" :props="props">
-        <q-btn @click="addNewField" round class="text-white" color="primary" icon="add" />
-      </q-td>
-    </template>
-  </q-table>
+  <div>
+    <q-table flat class="q-mt-lg" :rows="rowData" :hidePagination="true" :columns="cols" row-key="name">
+      <template #header-cell="props">
+        <q-th class="text-common text-subtitle2" :props="props">
+          {{ props.col.label }}
+        </q-th>
+      </template>
+      <template #body-cell-itemName="props">
+        <q-td :props="props">
+          <q-input dense v-model="rowData[props.rowIndex].itemName" label="Description" rounded>
+          </q-input>
+        </q-td>
+      </template>
+      <template #body-cell-hours="props">
+        <q-td :props="props">
+          <q-input type="number" @change="updateTableTotal(props.rowIndex)" dense
+            v-model="rowData[props.rowIndex].hours" :label="props.col.label" rounded></q-input>
+        </q-td>
+      </template>
+      <template #body-cell-ratePerHr="props">
+        <q-td :props="props">
+          <q-input type="number" @change="updateTableTotal(props.rowIndex)" v-model="rowData[props.rowIndex].ratePerHr"
+            prefix="$" dense :label="props.col.label" rounded>
+          </q-input>
+        </q-td>
+      </template>
+      <template #body-cell-tax="props">
+        <q-td :props="props">
+          <q-input type="number" v-model="rowData[props.rowIndex].tax" prefix="$" dense :label="props.col.label"
+            rounded>
+          </q-input>
+        </q-td>
+      </template>
+      <template #body-cell-lineTotal="props">
+        <q-td :props="props">
+          <q-input type="number" v-model="rowData[props.rowIndex].lineTotal" prefix="$" dense :label="props.col.label"
+            rounded>
+          </q-input>
+        </q-td>
+      </template>
+      <template #body-cell-action="props">
+        <q-td v-if="rowData[props.rowIndex].action" :props="props">
+          <q-btn @click="addNewField" round class="text-white" color="primary" icon="add" />
+        </q-td>
+      </template>
+    </q-table>
+    <div class="row-md">
+      <InvoicePaymentMethod></InvoicePaymentMethod>
+    </div>
+  </div>
 
 </template>
 
@@ -77,8 +83,11 @@ const rows = [
 
 ]
 import { ref } from 'vue'
+import InvoicePaymentMethod from 'src/components/InvoicePaymentMethod.vue'
 export default {
-
+  components: {
+    InvoicePaymentMethod,
+  },
   setup() {
     const cols = ref(columns)
     const rowData = ref(rows)
