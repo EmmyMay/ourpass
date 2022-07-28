@@ -34,10 +34,6 @@ export default {
 </script>
 
 <style scoped>
-.border {
-  border: solid red 3px;
-}
-
 .account__details {
   position: relative;
   bottom: 2rem;

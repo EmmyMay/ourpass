@@ -22,6 +22,9 @@ dd {
 .bg-custom {
   background-color: #4c49a4;
 }
+.bg-custom-two {
+  background-color: #fcfcfc;
+}
 .rounded {
   border-radius: 1rem;
 }
@@ -29,6 +32,9 @@ dd {
 .custom-fit {
   width: -moz-fit-content !important;
   width: fit-content !important;
+}
+.min-w-full {
+  min-width: 100%;
 }
 .max-custom-fit {
   max-width: -moz-fit-content !important;
