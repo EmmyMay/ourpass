@@ -1,5 +1,5 @@
 <template>
-  <div class="InvoiceCard row justify-between q-px-lg q-py-md bg-custom text-white rounded">
+  <div class="InvoiceCard row-sm justify-sm-between column items-center q-px-lg q-py-md bg-custom text-white rounded">
     <div>
       <h6 class="q-ma-none text-subtitle2 q-mb-md">Invoice Number</h6>
 
@@ -14,7 +14,7 @@
         <dd> <time datetime="2022-01-18"> 18 Jan 2022 </time> </dd>
       </dl>
     </div>
-    <div class="column items-end">
+    <div class="column q-mt-lg q-mt-sm-none items-sm-end">
       <h6 class="q-ma-none text-subtitle2 q-mb-md">Billed to</h6>
 
       <p>Zak Grizzly</p>
