@@ -9,11 +9,22 @@ body {
   font-family: Poppins;
   background-color: #fafafa;
 }
-
+/* resetting address styling */
+address {
+  font-style: normal;
+}
+dd {
+  margin-inline-start: 0;
+}
 .text-common {
   color: #b0b4b8 !important;
 }
-
+.bg-custom {
+  background-color: #4c49a4;
+}
+.rounded {
+  border-radius: 1rem;
+}
 /* TODO: Revise class names adn remove important */
 .custom-fit {
   width: -moz-fit-content !important;
