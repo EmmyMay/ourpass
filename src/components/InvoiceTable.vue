@@ -1,9 +1,46 @@
 <template>
 
-  <q-table flat title="Treats" :rows="rows" :hidePagination="true" :columns="columns" row-key="name">
-    <template #body-cell="props">
+  <q-table flat class="q-mt-lg" :rows="rowData" :hidePagination="true" :columns="cols" row-key="name">
+    <template #header-cell="props">
+      <q-th class="text-common text-subtitle2" :props="props">
+        {{ props.col.label }}
+      </q-th>
+    </template>
+    <template #body-cell-itemName="props">
       <q-td :props="props">
-        <q-btn flat color="primary" :label="props.value" />
+        <q-input dense v-model="rowData[props.rowIndex].itemName" label="Description" rounded>
+        </q-input>
+      </q-td>
+    </template>
+    <template #body-cell-hours="props">
+      <q-td :props="props">
+        <q-input type="number" @change="updateTableTotal(props.rowIndex)" dense v-model="rowData[props.rowIndex].hours"
+          :label="props.col.label" rounded></q-input>
+      </q-td>
+    </template>
+    <template #body-cell-ratePerHr="props">
+      <q-td :props="props">
+        <q-input type="number" @change="updateTableTotal(props.rowIndex)" v-model="rowData[props.rowIndex].ratePerHr"
+          prefix="$" dense :label="props.col.label" rounded>
+        </q-input>
+      </q-td>
+    </template>
+    <template #body-cell-tax="props">
+      <q-td :props="props">
+        <q-input type="number" v-model="rowData[props.rowIndex].tax" prefix="$" dense :label="props.col.label" rounded>
+        </q-input>
+      </q-td>
+    </template>
+    <template #body-cell-lineTotal="props">
+      <q-td :props="props">
+        <q-input type="number" v-model="rowData[props.rowIndex].lineTotal" prefix="$" dense :label="props.col.label"
+          rounded>
+        </q-input>
+      </q-td>
+    </template>
+    <template #body-cell-action="props">
+      <q-td v-if="rowData[props.rowIndex].action" :props="props">
+        <q-btn @click="addNewField" round class="text-white" color="primary" icon="add" />
       </q-td>
     </template>
   </q-table>
@@ -13,129 +50,54 @@
 <script>
 const columns = [
   {
-    name: 'name',
-    required: true,
+    name: 'itemName',
     label: 'Item Name',
     align: 'left',
-    field: row => row.name,
+    field: 'itemName',
     format: val => `${val}`,
 
   },
-  { name: 'Hours', align: 'center', label: 'Hours', field: 'calories', },
-  { name: 'Rate/hr', label: 'Rate/hr', field: 'fat', },
-  { name: 'Tax', label: 'Tax', field: 'carbs' },
-  { name: 'Line Total', label: 'Line Total', field: 'protein' },
+  { name: 'hours', align: 'center', label: 'Hours', field: 'hours', },
+  { name: 'ratePerHr', label: 'Rate/hr', field: 'ratePerHr', },
+  { name: 'tax', label: 'Tax', field: 'tax' },
+  { name: 'lineTotal', label: 'Line Total', field: 'lineTotal' },
+  { name: 'action', label: '', field: 'action' },
 
 ]
 
 const rows = [
   {
-    name: 'Frozen Yogurt',
-    calories: 159,
-    fat: 6.0,
-    carbs: 24,
-    protein: 4.0,
-    sodium: 87,
-    calcium: '14%',
-    iron: '1%'
+    itemName: '',
+    hours: '',
+    ratePerHr: '',
+    tax: '',
+    lineTotal: '',
+    action: true,
   },
-  {
-    name: 'Ice cream sandwich',
-    calories: 237,
-    fat: 9.0,
-    carbs: 37,
-    protein: 4.3,
-    sodium: 129,
-    calcium: '8%',
-    iron: '1%'
-  },
-  {
-    name: 'Eclair',
-    calories: 262,
-    fat: 16.0,
-    carbs: 23,
-    protein: 6.0,
-    sodium: 337,
-    calcium: '6%',
-    iron: '7%'
-  },
-  {
-    name: 'Cupcake',
-    calories: 305,
-    fat: 3.7,
-    carbs: 67,
-    protein: 4.3,
-    sodium: 413,
-    calcium: '3%',
-    iron: '8%'
-  },
-  {
-    name: 'Gingerbread',
-    calories: 356,
-    fat: 16.0,
-    carbs: 49,
-    protein: 3.9,
-    sodium: 327,
-    calcium: '7%',
-    iron: '16%'
-  },
-  {
-    name: 'Jelly bean',
-    calories: 375,
-    fat: 0.0,
-    carbs: 94,
-    protein: 0.0,
-    sodium: 50,
-    calcium: '0%',
-    iron: '0%'
-  },
-  {
-    name: 'Lollipop',
-    calories: 392,
-    fat: 0.2,
-    carbs: 98,
-    protein: 0,
-    sodium: 38,
-    calcium: '0%',
-    iron: '2%'
-  },
-  {
-    name: 'Honeycomb',
-    calories: 408,
-    fat: 3.2,
-    carbs: 87,
-    protein: 6.5,
-    sodium: 562,
-    calcium: '0%',
-    iron: '45%'
-  },
-  {
-    name: 'Donut',
-    calories: 452,
-    fat: 25.0,
-    carbs: 51,
-    protein: 4.9,
-    sodium: 326,
-    calcium: '2%',
-    iron: '22%'
-  },
-  {
-    name: 'KitKat',
-    calories: 518,
-    fat: 26.0,
-    carbs: 65,
-    protein: 7,
-    sodium: 54,
-    calcium: '12%',
-    iron: '6%'
-  }
-]
 
+]
+import { ref } from 'vue'
 export default {
+
   setup() {
+    const cols = ref(columns)
+    const rowData = ref(rows)
+    const updateTableTotal = (rowIndex) => {
+      if (rowData.value[rowIndex].hours && rowData.value[rowIndex].ratePerHr) {
+        rowData.value[rowIndex].lineTotal = +rowData.value[rowIndex].hours * +rowData.value[rowIndex].ratePerHr
+      }
+    }
+
+    const addNewField = () => {
+      const newField = { itemName: '', hours: '', ratePerHr: '', tax: '', lineTotal: '' }
+      rowData.value.push(newField)
+    }
+
     return {
-      columns,
-      rows
+      cols,
+      rowData,
+      updateTableTotal,
+      addNewField
     }
   }
 }
