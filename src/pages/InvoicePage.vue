@@ -33,9 +33,26 @@
 import InvoiceBreadcrumb from "../components/InvoiceBreadcrumb.vue";
 import InvoiceCard from "src/components/InvoiceCard.vue";
 import InvoiceTable from "src/components/InvoiceTable.vue";
+import { useStore } from 'vuex'
+import { onMounted } from "vue";
+
+
 
 export default {
-  components: { InvoiceBreadcrumb, InvoiceCard, InvoiceTable }
+  components: { InvoiceBreadcrumb, InvoiceCard, InvoiceTable },
+
+  setup() {
+    const store = useStore()
+
+    const getInvoices = () => store.dispatch('invoice/getInvoice')
+    onMounted(async () => {
+      getInvoices()
+    })
+
+    return {
+
+    }
+  }
 }
 </script>
 
