@@ -46,8 +46,17 @@
 </template>
 
 <script>
+import { useStore } from 'vuex'
+import { onMounted } from "vue";
 export default {
+  setup() {
+    const store = useStore()
+    const getAccounts = () => store.dispatch('account/getAccount')
 
+    onMounted(() => {
+      getAccounts()
+    })
+  }
 }
 </script>
 
