@@ -5,9 +5,18 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
+import { getInvoice } from 'src/services/invoiceService'
+import { getAccount } from 'src/services/accountService'
 
 export default defineComponent({
-  name: 'IndexPage'
+  name: 'IndexPage',
+
+  setup() {
+    onMounted(() => {
+      getInvoice()
+      getAccount()
+    })
+  }
 })
 </script>
