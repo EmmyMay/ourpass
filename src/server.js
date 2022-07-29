@@ -41,7 +41,7 @@ export function makeServer({ environment = 'development' } = {}) {
         return schema.invoices.all()
       })
       this.get('/accounts', schema => {
-        return schema.accountss.all()
+        return schema.accounts.all()
       })
     },
   })
