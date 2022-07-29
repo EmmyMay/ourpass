@@ -42,4 +42,10 @@ export default {
 .InvoiceCard {
   min-width: 100%;
 }
+
+@media (max-width: 450px) {
+  .InvoiceCard {
+    align-items: flex-start;
+  }
+}
 </style>

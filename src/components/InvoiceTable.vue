@@ -1,12 +1,19 @@
 <template>
 
   <div>
-    <div class="row justify-between">
-      <div>
+    <div class="table__header row justify-between">
+      <div class="gt-xs">
         <h6 class="q-ma-none q-mb-xs">Item Detail</h6>
-        <p class="q-ma-none text-caption text-common">Type Item for Hours Item</p>
+        <p class=" q-ma-none text-common">Type Item for Hours Item</p>
       </div>
-      <q-btn label="Customize" class="q-py-sm text-weight-bold" size="1rem"
+      <div class="lt-sm">
+        <h6 class="q-ma-none text-body2 q-mb-xs">Item Detail</h6>
+        <p class="subtitle q-ma-none text-caption text-common">Type Item for Hours Item</p>
+      </div>
+      <q-btn label="Customize" class=" gt-xs q-py-sm-sm text-weight-bold" size="1rem"
+        style="border-radius: .8rem; text-transform: capitalize;" text-color="primary" unelevated color="positive"
+        icon="sort"></q-btn>
+      <q-btn label="Customize" class="cta-customize lt-sm text-weight-bold" size=".7rem"
         style="border-radius: .8rem; text-transform: capitalize;" text-color="primary" unelevated color="positive"
         icon="sort"></q-btn>
     </div>
@@ -155,4 +162,14 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width: 375px) {
+  .cta-customize {
+    max-height: 3rem;
+    line-height: 1.3em;
+  }
+
+  .subtitle {
+    max-width: 4rem;
+  }
+}
 </style>

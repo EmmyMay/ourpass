@@ -60,4 +60,10 @@ address a {
     min-width: 70%;
   }
 }
+
+@media (max-width: 450px) {
+  .company_info {
+    align-items: flex-start;
+  }
+}
 </style>
