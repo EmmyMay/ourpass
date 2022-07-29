@@ -21,7 +21,7 @@ export function makeServer({ environment = 'development' } = {}) {
         invoice: {
           invoiceNumber: 'INV-2022-010',
           dateIssued: '11 Jan 2022',
-          duDate: '18 Jan 2022',
+          dueDate: '18 Jan 2022',
           billedTo: 'Zaky Grizzly',
           companyName: 'Moonlight Agency LTD',
           location: 'New York, USA',
