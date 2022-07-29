@@ -101,8 +101,8 @@ const rows = [
 
 ]
 import { ref } from 'vue'
-import InvoicePaymentMethod from 'src/components/InvoicePaymentMethod.vue'
-import InvoiceSummary from 'src/components/InvoiceSummary.vue'
+import InvoicePaymentMethod from 'src/components/app/invoice/InvoiceTable/InvoicePaymentMethod.vue'
+import InvoiceSummary from 'src/components/app/invoice/InvoiceTable/InvoiceSummary.vue'
 export default {
   components: {
     InvoicePaymentMethod,

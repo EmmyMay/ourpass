@@ -1,5 +1,5 @@
 import api from './api'
 
 export const getInvoice = () => {
-  api.get('/invoices')
+  return api.get('/invoices')
 }
