@@ -3,7 +3,9 @@ const state = {
   invoices: [],
 }
 
-const getters = {}
+const getters = {
+  getInvoice: state => state.invoices,
+}
 
 const actions = {
   async getInvoice({ commit, dispatch }) {
