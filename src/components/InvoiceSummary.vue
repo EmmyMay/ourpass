@@ -49,14 +49,16 @@ export default {
 </script>
 
 <style scoped>
-.border {
-  border: solid red 2px;
-}
-
-@media (min-width: 600px) {
+@media (min-width: 600px) and (max-width: 1023px) {
   .invoicesummary {
     max-width: 80%;
-    margin: 0 auto;
   }
 }
+
+/* @media (min-width: 1024px) {
+  .invoicesummary {
+    min-width: 100%;
+  }
+
+} */
 </style>

@@ -1,6 +1,6 @@
 <template>
 
-  <div class="q-pa-lg">
+  <div class="invoice__page q-pa-lg">
     <InvoiceBreadcrumb class="q-mb-sm"></InvoiceBreadcrumb>
     <div class="bg-white rounded q-px-lg q-pt-xs">
 
@@ -56,8 +56,25 @@ address a {
 }
 
 @media (min-width: 1024px) {
-  .q-page {
-    min-width: 70%;
+  .invoice__page {
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: 12rem;
+  }
+
+}
+
+@media (min-width: 2000px) {
+  .invoice__page {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+
+}
+
+@media (max-width: 450px) {
+  .company_info {
+    align-items: flex-start;
   }
 }
 </style>

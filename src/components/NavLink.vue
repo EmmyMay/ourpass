@@ -49,7 +49,6 @@ export default defineComponent({
 @media (max-width: 599px) {
   .navlink-active {
     border-left: #343084 solid 6px;
-    /* color: ; */
   }
 }
 
