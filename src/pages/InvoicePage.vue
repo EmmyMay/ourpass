@@ -35,9 +35,9 @@
 </template>
 
 <script>
-import InvoiceBreadcrumb from "../components/InvoiceBreadcrumb.vue";
-import InvoiceCard from "src/components/InvoiceCard.vue";
-import InvoiceTable from "src/components/InvoiceTable.vue";
+import InvoiceBreadcrumb from "src/components/app/invoice/InvoiceBreadcrumb.vue";
+import InvoiceCard from "src/components/app/invoice/InvoiceCard.vue";
+import InvoiceTable from "src/components/app/invoice/InvoiceTable/InvoiceTable.vue";
 import { useStore } from 'vuex'
 import { computed } from "vue";
 
