@@ -15,21 +15,21 @@
       </template>
       <template #body-cell-hours="props">
         <q-td :props="props">
-          <q-input type="number" @change="updateTableTotal(props.rowIndex)" dense
-            v-model="rowData[props.rowIndex].hours" :label="props.col.label" rounded></q-input>
+          <q-input type="number" @change="updateLineTotal(props.rowIndex)" dense v-model="rowData[props.rowIndex].hours"
+            :label="props.col.label" rounded></q-input>
         </q-td>
       </template>
       <template #body-cell-ratePerHr="props">
         <q-td :props="props">
-          <q-input type="number" @change="updateTableTotal(props.rowIndex)" v-model="rowData[props.rowIndex].ratePerHr"
+          <q-input type="number" @change="updateLineTotal(props.rowIndex)" v-model="rowData[props.rowIndex].ratePerHr"
             prefix="$" dense :label="props.col.label" rounded>
           </q-input>
         </q-td>
       </template>
       <template #body-cell-tax="props">
         <q-td :props="props">
-          <q-input type="number" v-model="rowData[props.rowIndex].tax" prefix="$" dense :label="props.col.label"
-            rounded>
+          <q-input type="number" @change="sumTaxes()" v-model="rowData[props.rowIndex].tax" prefix="$" dense
+            :label="props.col.label" rounded>
           </q-input>
         </q-td>
       </template>
@@ -48,6 +48,7 @@
     </q-table>
     <div class="row-md">
       <InvoicePaymentMethod></InvoicePaymentMethod>
+      <InvoiceSummary :report="report"></InvoiceSummary>
     </div>
   </div>
 
@@ -84,16 +85,40 @@ const rows = [
 ]
 import { ref } from 'vue'
 import InvoicePaymentMethod from 'src/components/InvoicePaymentMethod.vue'
+import InvoiceSummary from 'src/components/InvoiceSummary.vue'
 export default {
   components: {
     InvoicePaymentMethod,
+    InvoiceSummary
   },
   setup() {
     const cols = ref(columns)
     const rowData = ref(rows)
-    const updateTableTotal = (rowIndex) => {
+    const subTotal = ref(0)
+    const tax = ref(0)
+
+    const subTotalSum = () => {
+      subTotal.value = 0
+      rowData.value.forEach(row => {
+        if (row.lineTotal) {
+          subTotal.value += +row.lineTotal
+        }
+      });
+    }
+    // updating the taxes via the change event instead of using a watcher
+    const sumTaxes = () => {
+      tax.value = 0
+      rowData.value.forEach(row => {
+        if (row.tax) {
+          tax.value += +row.tax
+        }
+      });
+    }
+
+    const updateLineTotal = (rowIndex) => {
       if (rowData.value[rowIndex].hours && rowData.value[rowIndex].ratePerHr) {
         rowData.value[rowIndex].lineTotal = +rowData.value[rowIndex].hours * +rowData.value[rowIndex].ratePerHr
+        subTotalSum()
       }
     }
 
@@ -102,11 +127,19 @@ export default {
       rowData.value.push(newField)
     }
 
+    const report = {
+      subTotal,
+      tax
+    }
+
     return {
       cols,
       rowData,
-      updateTableTotal,
-      addNewField
+      updateLineTotal,
+      sumTaxes,
+      addNewField,
+      report,
+
     }
   }
 }
