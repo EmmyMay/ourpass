@@ -12,7 +12,7 @@
       <div class="row min-w-full items-center justify-between">
         <h6 class="q-ma-none gt-xs text-subtitle1 text-weight-bold q-mb-md">Wire Transfer</h6>
         <h6 class="q-ma-none lt-sm text-body2 text-weight-bold q-mb-md">Wire Transfer</h6>
-        <img class="gt-xs" width="150" src="src/assets/wiselogo.webp" alt="Logo for payment processor, Wise.">
+        <img class="gt-xs q-mb-md" width="120" src="src/assets/wiselogo.webp" alt="Logo for payment processor, Wise.">
         <img class="lt-sm q-mb-md" width="90" src="src/assets/wiselogo.webp" alt="Logo for payment processor, Wise.">
       </div>
       <div class="account__details">

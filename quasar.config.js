@@ -33,6 +33,10 @@ module.exports = configure(function (/* ctx */) {
         server: false,
         path: 'color',
       },
+      {
+        server: false,
+        path: 'server',
+      },
     ],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
