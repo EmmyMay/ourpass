@@ -63,9 +63,9 @@
       </template>
     </q-table>
     <div class="row-md items-center">
-      <InvoicePaymentMethod class="col-5"></InvoicePaymentMethod>
+      <InvoicePaymentMethod class="col-6"></InvoicePaymentMethod>
       <q-space></q-space>
-      <InvoiceSummary class="col-5" :report="report"></InvoiceSummary>
+      <InvoiceSummary class="col-4" :report="report"></InvoiceSummary>
     </div>
   </div>
 

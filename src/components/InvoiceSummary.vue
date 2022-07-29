@@ -54,11 +54,4 @@ export default {
     max-width: 80%;
   }
 }
-
-/* @media (min-width: 1024px) {
-  .invoicesummary {
-    min-width: 100%;
-  }
-
-} */
 </style>

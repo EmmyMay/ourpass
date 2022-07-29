@@ -45,10 +45,6 @@ address a {
 }
 
 @media (max-width: 1023px) {
-  .q-page {
-    min-width: 100%;
-  }
-
 
   .company_info {
     min-width: 100%;
@@ -57,7 +53,7 @@ address a {
 
 @media (min-width: 1024px) {
   .invoice__page {
-    max-width: 70%;
+    max-width: 80%;
     margin-left: auto;
     margin-right: 12rem;
   }
