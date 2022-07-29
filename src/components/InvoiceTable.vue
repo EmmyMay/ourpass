@@ -62,9 +62,10 @@
         </q-td>
       </template>
     </q-table>
-    <div class="row-md">
-      <InvoicePaymentMethod></InvoicePaymentMethod>
-      <InvoiceSummary :report="report"></InvoiceSummary>
+    <div class="row-md items-center">
+      <InvoicePaymentMethod class="col-5"></InvoicePaymentMethod>
+      <q-space></q-space>
+      <InvoiceSummary class="col-5" :report="report"></InvoiceSummary>
     </div>
   </div>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="row  q-pa-md">
+  <div class="invoice__paymentmethod row  q-pa-md">
     <div class="heading gt-xs row justify-between ">
       <h6 class="q-ma-none q-mt-md  text-weight-bold q-mb-md">Payment Method</h6>
       <q-btn color="primary" flat class="text-weight-bold" label="Select Payment" />
@@ -56,10 +56,6 @@ export default {
   .details__container {
     min-width: 100%;
   }
-}
-
-.border {
-  border: solid red 1px;
 }
 
 .account__details {

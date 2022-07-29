@@ -1,5 +1,5 @@
 <template>
-  <div class="InvoiceCard row-sm justify-sm-between column items-center q-px-lg q-py-md bg-custom text-white rounded">
+  <div class="InvoiceCard row-sm justify-sm-between column items-center  q-px-xl q-py-md bg-custom text-white rounded">
     <div>
       <h6 class="q-ma-none text-subtitle2 q-mb-md">Invoice Number</h6>
 
@@ -39,10 +39,6 @@ export default {
 </script>
 
 <style scoped>
-.InvoiceCard {
-  min-width: 100%;
-}
-
 @media (max-width: 450px) {
   .InvoiceCard {
     align-items: flex-start;

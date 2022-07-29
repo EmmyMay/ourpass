@@ -1,5 +1,5 @@
 <template>
-  <div class="invoicesummary border q-pa-md">
+  <div class="invoicesummary  q-pa-md">
     <dl class=" row justify-between items-center">
       <dt class="q-mr-xs text-weight-bold">Sub Total</dt>
       <!-- Could be improved with a formatter package -->
@@ -49,9 +49,16 @@ export default {
 </script>
 
 <style scoped>
-@media (min-width: 600px) {
+@media (min-width: 600px) and (max-width: 1023px) {
   .invoicesummary {
     max-width: 80%;
   }
 }
+
+/* @media (min-width: 1024px) {
+  .invoicesummary {
+    min-width: 100%;
+  }
+
+} */
 </style>
