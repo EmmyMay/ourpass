@@ -23,7 +23,7 @@
       </div>
 
       <InvoiceCard class="q-mt-xs"></InvoiceCard>
-      <InvoiceTable></InvoiceTable>
+      <InvoiceTable class="q-mt-lg"></InvoiceTable>
     </div>
   </div>
 

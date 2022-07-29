@@ -1,6 +1,15 @@
 <template>
 
   <div>
+    <div class="row justify-between">
+      <div>
+        <h6 class="q-ma-none q-mb-xs">Item Detail</h6>
+        <p class="q-ma-none text-caption text-common">Type Item for Hours Item</p>
+      </div>
+      <q-btn label="Customize" class="q-py-sm text-weight-bold" size="1rem"
+        style="border-radius: .8rem; text-transform: capitalize;" text-color="primary" unelevated color="positive"
+        icon="sort"></q-btn>
+    </div>
     <q-table flat class="q-mt-lg" :rows="rowData" :hidePagination="true" :columns="cols" row-key="name">
       <template #header-cell="props">
         <q-th class="text-common text-subtitle2" :props="props">

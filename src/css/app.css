@@ -16,6 +16,9 @@ address {
 dd {
   margin-inline-start: 0;
 }
+.brand-accent {
+  color: #244042;
+}
 .text-common {
   color: #b0b4b8 !important;
 }
