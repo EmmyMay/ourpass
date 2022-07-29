@@ -1,5 +1,5 @@
 import api from './api'
 
 export const getAccount = () => {
-  api.get('/accounts')
+  return api.get('/accounts')
 }
