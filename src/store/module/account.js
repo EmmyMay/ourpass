@@ -20,7 +20,7 @@ const actions = {
 
 const mutations = {
   SET_ACCOUNTS(state, account) {
-    state.account = account.accounts
+    state.account = Object.assign(...account.accounts)
   },
 }
 

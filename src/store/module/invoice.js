@@ -20,7 +20,7 @@ const actions = {
 
 const mutations = {
   SET_INVOICES(state, invoice) {
-    state.invoices = invoice.invoices
+    state.invoices = Object.assign(...invoice.invoices)
   },
 }
 
